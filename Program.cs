@@ -15,16 +15,16 @@ namespace SimulacionTrafico
             var light = new TrafficLight();
             var street = new Street("Javier Prado");
             var intersection = new Intersection("Av. Javier Prado x Av. Canadá");
+            var simulator = new TrafficSimulator();
 
             car.Start();
             street.AddCar(car);
             street.AddTrafficLight(light);
             intersection.AddStreet(street);
+            simulator.AddStreet(street);
+            simulator.AddIntersection(intersection);
 
-            Console.WriteLine($"Car {car.GetLicensePlate()} is on {street.GetName()}");
-            Console.WriteLine($"There are {street.GetCarCount()} cars on the street.");
-            Console.WriteLine($"Traffic light is {light.GetColor()}");
-            Console.WriteLine($"Intersection: {intersection.GetName()} has {intersection.GetStreetCount()} streets.");
+            simulator.StartSimulation();
 
             Console.ReadKey();
         }
