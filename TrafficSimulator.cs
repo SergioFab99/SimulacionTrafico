@@ -69,5 +69,20 @@ namespace SimulacionTrafico
             Console.WriteLine($"Total streets: {_streets.Count}");
             Console.WriteLine($"Total intersections: {_intersections.Count}");
         }
+
+        public void SetNightMode()
+        {
+            _isNight = true;
+        }
+
+        public bool IsPeakHour()
+        {
+            return (_currentHour >= 7 && _currentHour <= 9) || (_currentHour >= 17 && _currentHour <= 19);
+        }
+
+        public bool IsWeekendNight()
+        {
+            return _isWeekend && (_currentHour >= 18 || _currentHour < 6);
+        }
     }
 }

@@ -8,13 +8,13 @@ namespace SimulacionTrafico
 {
     public class Car
     {
-        private string _licensePlate;
+        private string _model;
         private int _speed;
         private bool _isMoving;
 
-        public Car(string licensePlate)
+        public Car(string model)
         {
-            _licensePlate = licensePlate;
+            _model = model;
             _speed = 0;
             _isMoving = false;
         }
@@ -36,9 +36,14 @@ namespace SimulacionTrafico
             return _speed;
         }
 
-        public string GetLicensePlate()
+        public string GetModel()
         {
-            return _licensePlate;
+            return _model;
+        }
+
+        public bool IsMoving()
+        {
+            return _isMoving;
         }
     }
 }
