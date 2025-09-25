@@ -84,5 +84,66 @@ namespace SimulacionTrafico
         {
             return _isWeekend && (_currentHour >= 18 || _currentHour < 6);
         }
+
+        public void SimulateTrafficEvent()
+        {
+            var random = new Random();
+            var eventNumber = random.Next(1, 100);
+
+            if (eventNumber <= 30) // 30% de probabilidad de semáforo
+            {
+                SimulateTrafficLightEvent();
+            }
+            else if (eventNumber <= 40) // 10% de probabilidad de policía
+            {
+                SimulatePoliceEvent();
+            }
+        }
+
+        private void SimulateTrafficLightEvent()
+        {
+            var random = new Random();
+            var lightColor = random.Next(1, 3);
+
+            if (lightColor == 1)
+            {
+                Console.WriteLine("🔴 RED LIGHT! Cross?");
+                Console.WriteLine("A) Yes");
+                Console.WriteLine("B) No");
+
+                var choice = Console.ReadLine().ToUpper();
+
+                if (choice == "A")
+                {
+                    Console.WriteLine("⚠️ You crossed on red! Risky move!");
+                }
+                else
+                {
+                    Console.WriteLine("✅ Good! You waited for green light.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("🟢 GREEN LIGHT! Keep going.");
+            }
+        }
+
+        private void SimulatePoliceEvent()
+        {
+            Console.WriteLine("🚨 POLICE STOP! What do you do?");
+            Console.WriteLine("A) Run away");
+            Console.WriteLine("B) Pay the ticket");
+
+            var choice = Console.ReadLine().ToUpper();
+
+            if (choice == "A")
+            {
+                Console.WriteLine("⚠️ You tried to escape! Risky move!");
+            }
+            else
+            {
+                Console.WriteLine("✅ Good! You paid the ticket.");
+            }
+        }
     }
 }

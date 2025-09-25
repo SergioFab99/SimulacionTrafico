@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
-
-
-using System;
 using System.Threading;
 
 namespace SimulacionTrafico
@@ -100,6 +92,11 @@ namespace SimulacionTrafico
                 {
                     Console.WriteLine("⚠️ WARNING: Driving at night with an old car!");
                 }
+
+                simulator.SimulateTrafficEvent();
+
+                Console.WriteLine("\nPress any key to continue...");
+                Console.ReadKey(true);
 
                 Thread.Sleep(1000);
             }
