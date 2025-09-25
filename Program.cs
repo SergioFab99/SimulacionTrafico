@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System;
+
 namespace SimulacionTrafico
 {
     class Program
@@ -12,16 +14,15 @@ namespace SimulacionTrafico
         {
             var car = new Car("ABC123");
             var light = new TrafficLight();
+            var street = new Street("Javier Prado");
 
             car.Start();
-            Console.WriteLine($"Car {car.GetLicensePlate()} is moving at {car.GetSpeed()} km/h");
+            street.AddCar(car);
+            street.AddTrafficLight(light);
 
+            Console.WriteLine($"Car {car.GetLicensePlate()} is on {street.GetName()}");
+            Console.WriteLine($"There are {street.GetCarCount()} cars on the street.");
             Console.WriteLine($"Traffic light is {light.GetColor()}");
-            light.ChangeColor();
-            Console.WriteLine($"Traffic light changed to {light.GetColor()}");
-
-            car.Stop();
-            Console.WriteLine($"Car {car.GetLicensePlate()} stopped.");
 
             Console.ReadKey();
         }
