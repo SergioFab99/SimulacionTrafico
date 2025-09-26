@@ -6,42 +6,42 @@ using System.Threading.Tasks;
 
 namespace SimulacionTrafico
 {
-    public class Car
+    internal class Car
     {
         private string _model;
         private int _speed;
         private bool _isMoving;
 
-        public Car(string model)
+        internal Car(string model)
         {
             _model = model;
             _speed = 0;
             _isMoving = false;
         }
 
-        public void Start()
+        internal void Start()
         {
             _isMoving = true;
             _speed = 30;
         }
 
-        public void Stop()
+        internal void Stop()
         {
             _isMoving = false;
             _speed = 0;
         }
 
-        public int GetSpeed()
+        internal int GetSpeed()
         {
             return _speed;
         }
 
-        public string GetModel()
+        internal string GetModel()
         {
             return _model;
         }
 
-        public bool IsMoving()
+        internal bool IsMoving()
         {
             return _isMoving;
         }

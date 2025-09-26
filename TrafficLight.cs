@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace SimulacionTrafico
 {
-    public class TrafficLight
+    internal class TrafficLight
     {
         private string _color;
         private bool _isWorking;
 
-        public TrafficLight()
+        internal TrafficLight()
         {
             _color = "Red";
             _isWorking = true;
         }
 
-        public void ChangeColor()
+        internal void ChangeColor()
         {
             switch (_color)
             {
@@ -33,18 +33,18 @@ namespace SimulacionTrafico
             }
         }
 
-        public string GetColor()
+        internal string GetColor()
         {
             return _color;
         }
 
-        public void Break()
+        internal void Break()
         {
             _isWorking = false;
             _color = "Broken";
         }
 
-        public bool IsWorking()
+        internal bool IsWorking()
         {
             return _isWorking;
         }

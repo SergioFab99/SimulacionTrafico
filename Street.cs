@@ -7,35 +7,35 @@ using System.Threading.Tasks;
 
 namespace SimulacionTrafico
 {
-    public class Street
+    internal class Street
     {
         private string _name;
         private List<Car> _cars;
         private List<TrafficLight> _trafficLights;
 
-        public Street(string name)
+        internal Street(string name)
         {
             _name = name;
             _cars = new List<Car>();
             _trafficLights = new List<TrafficLight>();
         }
 
-        public void AddCar(Car car)
+        internal void AddCar(Car car)
         {
             _cars.Add(car);
         }
 
-        public void AddTrafficLight(TrafficLight light)
+        internal void AddTrafficLight(TrafficLight light)
         {
             _trafficLights.Add(light);
         }
 
-        public int GetCarCount()
+        internal int GetCarCount()
         {
             return _cars.Count;
         }
 
-        public string GetName()
+        internal string GetName()
         {
             return _name;
         }
